@@ -1,15 +1,27 @@
-// import { newObj } from '../utils/common'
-//用以代理abi，生成wx.api的Promise
-export default class CopyProxy {
-  constructor(stuff) {
+import { WeappAxios } from '../WeappAxios';
+
+// @ts-ignore
+declare global {
+  const wx: Record<string, Function>;
+}
+
+// 用以代理 abi，生成 wx.api 的 Promise
+export class CopyProxy {
+  stuff: WeappAxios;
+
+  constructor(stuff: WeappAxios) {
     this.stuff = stuff;
   }
+
   clone() {
-    //克隆本体函数
-    let obj =
-      typeof this.stuff === 'function' ? this.stuff.bind(this.stuff) : {};
+    // 克隆本体函数
+    const obj =
+      typeof this.stuff === 'function'
+        ? (this.stuff as Function).bind(this.stuff)
+        : {};
 
     Object.assign(obj, this.stuff);
+
     return obj;
   }
 
@@ -21,27 +33,29 @@ export default class CopyProxy {
    * ---------------------
    * proxy相对于definProperty是惰性的，触发get有返回key值参数，
    * 而definProperty触发get是没有key返回的。所以一开始就需要循环出所有的key来劫持
-   * */
-  make(obj = {}, soil, fn) {
+   */
+  make(obj: any = {}, soil: any, fn: Function) {
     if (typeof Proxy === 'function') {
       return this.proxy(obj, soil, fn);
     } else {
       return this.defineProperty(obj, soil, fn);
     }
   }
-  proxy(obj, soil, fn) {
+
+  proxy(obj: any, soil: any, fn: Function) {
     this.stuff[soil] = {};
     obj[soil] = new Proxy(this.stuff[soil], {
       get(target, key, receiver) {
         if (!target[key]) target[key] = fn(key);
-        // receiver会循环
+        // receiver 会循环
         return Reflect.get(target, key, receiver);
       },
     });
     return obj;
   }
-  defineProperty(obj, soil, fn) {
-    let soilKey = {};
+
+  defineProperty(obj: any, soil: any, fn: Function) {
+    const soilKey = {};
     obj[soil] = {};
     Object.keys(wx).forEach(wxApi => {
       Object.defineProperty(obj[soil], wxApi, {

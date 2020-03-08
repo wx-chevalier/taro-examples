@@ -5,9 +5,11 @@
     "paths": {
       "@/*": ["packages/rtw-host-app/src/*"]
     },
+    "jsx": "preserve",
     "strictFunctionTypes": false,
     "strictNullChecks": false,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "incremental": false
   },
   "include": ["**/*.ts", "**/*.tsx"]
 }

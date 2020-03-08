@@ -26,7 +26,7 @@ interface PageStateProps {
 interface PageDispatchProps {
   add: () => void;
   dec: () => void;
-  asyncAdd: () => any;
+  asyncAdd: () => unknown;
 }
 
 interface PageOwnProps {}
@@ -41,7 +41,7 @@ interface Index {
 
 @connect(
   ({ counter }) => ({
-    counter
+    counter,
   }),
   dispatch => ({
     add() {
@@ -52,10 +52,16 @@ interface Index {
     },
     asyncAdd() {
       dispatch(asyncAdd());
-    }
-  })
+    },
+  }),
 )
 class Index extends Component {
+  componentWillReceiveProps(nextProps) {
+    console.log(this.props, nextProps);
+  }
+
+  componentWillUnmount() {}
+
   /**
    * 指定config的类型声明为: Taro.Config
    *
@@ -64,14 +70,8 @@ class Index extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '首页',
   };
-
-  componentWillReceiveProps(nextProps) {
-    console.log(this.props, nextProps);
-  }
-
-  componentWillUnmount() {}
 
   componentDidShow() {}
 

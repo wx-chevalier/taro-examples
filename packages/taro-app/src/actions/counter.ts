@@ -2,18 +2,18 @@ import { ADD, MINUS } from '../constants/counter';
 
 export const add = () => {
   return {
-    type: ADD
+    type: ADD,
   };
 };
 export const minus = () => {
   return {
-    type: MINUS
+    type: MINUS,
   };
 };
 
 // 异步的action
 export function asyncAdd() {
-  return dispatch => {
+  return (dispatch: Function) => {
     setTimeout(() => {
       dispatch(add());
     }, 2000);

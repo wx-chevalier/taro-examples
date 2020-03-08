@@ -37,12 +37,8 @@
     "upgrade": "./scripts/tools/upgrade_pkgs.sh"
   },
   "devDependencies": {
-    "@svgr/webpack": "^5.1.0",
-    "@wx-fc/app-config": "^0.3.1"
+    "@wx-fc/app-config": "^0.3.6"
   },
-  "browserslist": [
-    "extends @wx-fc/browserslist-config/modern"
-  ],
   "commitlint": {
     "extends": [
       "@wx-fc"
@@ -53,17 +49,5 @@
     "plugins": [
       "@wx-fc/remark-config"
     ]
-  },
-  "stylelint": {
-    "extends": [
-      "@wx-fc/stylelint-config",
-      "@wx-fc/stylelint-config/modules"
-    ],
-    "rules": {
-      "font-family-no-missing-generic-family-keyword": null,
-      "no-descending-specificity": null,
-      "plugin/no-unsupported-browser-features": null,
-      "plugin/no-low-performance-animation-properties": null
-    }
   }
 }
