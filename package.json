@@ -28,7 +28,7 @@
     "lint": "./scripts/tools/lint_all.sh",
     "lint-staged": "lint-staged",
     "postinstall": "node ./node_modules/husky/lib/installer/bin install",
-    "prettier-all": "prettier --write 'packages/**/src/**/*.{ts,tsx}' '!src/{assets,datas}/**'",
+    "prettier-all": "prettier --write 'packages/**/src/**/*.{js,ts,tsx}' '!src/{assets,datas}/**'",
     "start": "(cd packages/taro-app && npm run dev:weapp)",
     "start:m-fe": "./scripts/tools/start_micro.sh",
     "test": "yarn workspaces run test",
