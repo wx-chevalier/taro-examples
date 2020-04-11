@@ -3,7 +3,7 @@ import { Provider } from '@tarojs/redux';
 import Taro, { Component, Config } from '@tarojs/taro';
 
 import Index from './pages/index';
-import configStore from './store';
+import { defaultStore } from './store';
 
 import './app.less';
 
@@ -12,8 +12,6 @@ import './app.less';
 // if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
 //   require('nerv-devtools')
 // }
-
-const store = configStore();
 
 class App extends Component {
   componentDidMount() {
@@ -49,7 +47,7 @@ class App extends Component {
   // 请勿修改此函数
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={defaultStore}>
         <Index />
       </Provider>
     );

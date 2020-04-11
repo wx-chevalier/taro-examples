@@ -3,7 +3,8 @@ import { connect } from '@tarojs/redux';
 import Taro, { Component, Config } from '@tarojs/taro';
 import { ComponentClass } from 'react';
 
-import { add, asyncAdd, minus } from '../../actions/counter';
+import { commonActions } from '../../ducks/common';
+import { AppState } from '../../ducks';
 
 import './index.less';
 
@@ -18,15 +19,12 @@ import './index.less';
 // #endregion
 
 interface PageStateProps {
-  counter: {
-    num: number;
-  };
+  counter: number;
 }
 
 interface PageDispatchProps {
-  add: () => void;
-  dec: () => void;
-  asyncAdd: () => unknown;
+  onAddAsync: (delta: number) => void;
+  onMinusAsync: (delta: number) => void;
 }
 
 interface PageOwnProps {}
@@ -40,20 +38,13 @@ interface Index {
 }
 
 @connect(
-  ({ counter }) => ({
-    counter,
+  (state: AppState) => ({
+    counter: state.common.count,
   }),
-  dispatch => ({
-    add() {
-      dispatch(add());
-    },
-    dec() {
-      dispatch(minus());
-    },
-    asyncAdd() {
-      dispatch(asyncAdd());
-    },
-  }),
+  {
+    onAddAsync: commonActions.incAsync,
+    onMinusAsync: commonActions.descAsync,
+  },
 )
 class Index extends Component {
   componentWillReceiveProps(nextProps) {
@@ -80,17 +71,25 @@ class Index extends Component {
   render() {
     return (
       <View className="index">
-        <Button className="add_btn" onClick={this.props.add}>
+        <Button
+          className="add_btn"
+          onClick={() => {
+            this.props.onAddAsync(1);
+          }}
+        >
           +
         </Button>
-        <Button className="dec_btn" onClick={this.props.dec}>
+        <Button
+          className="dec_btn"
+          onClick={() => {
+            this.props.onMinusAsync(1);
+          }}
+        >
           -
         </Button>
-        <Button className="dec_btn" onClick={this.props.asyncAdd}>
-          async
-        </Button>
+
         <View>
-          <Text>{this.props.counter.num}</Text>
+          <Text>{this.props.counter}</Text>
         </View>
         <View>
           <Text>Hello, World</Text>

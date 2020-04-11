@@ -1,9 +1,15 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-import { applyMiddleware, compose, createStore } from 'redux';
+import {
+  applyMiddleware,
+  compose,
+  createStore,
+  ReducersMapObject,
+} from 'redux';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
+import { middleware as reduxPackMiddleware } from 'redux-middleware-pack-fsa';
 
-import rootReducer from '../reducers';
+import { configReducer } from '../ducks';
 
 declare global {
   interface Window {
@@ -18,7 +24,7 @@ const composeEnhancers =
       })
     : compose;
 
-const middlewares = [thunkMiddleware];
+const middlewares = [reduxPackMiddleware, thunkMiddleware];
 
 if (
   process.env.NODE_ENV === 'development' &&
@@ -27,12 +33,22 @@ if (
   middlewares.push(createLogger());
 }
 
-const enhancer = composeEnhancers(
+const enhancers = composeEnhancers(
   applyMiddleware(...middlewares),
   // other store enhancers if any
 );
 
-export default function configStore() {
-  const store = createStore(rootReducer, enhancer);
-  return store;
+export function configStore(initialState: object = {}) {
+  const store = createStore(configReducer({}), initialState, enhancers);
+
+  function appendReducer(asyncReducers: ReducersMapObject) {
+    store.replaceReducer(configReducer(asyncReducers));
+  }
+
+  return {
+    ...store,
+    appendReducer,
+  };
 }
+
+export const defaultStore = configStore();
