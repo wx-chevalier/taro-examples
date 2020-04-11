@@ -62,7 +62,7 @@
     "@types/webpack-env": "^1.15.1",
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "@typescript-eslint/parser": "^2.22.0",
-    "@wx-fc/app-config": "^0.3.6",
+    "@m-fe/app-config": "^0.4.4",
     "babel-eslint": "^10.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.5",
@@ -82,11 +82,11 @@
     "typescript": "^3.8.3"
   },
   "browserslist": [
-    "extends @wx-fc/browserslist-config/modern"
+    "extends @m-fe/browserslist-config/modern"
   ],
   "commitlint": {
     "extends": [
-      "@wx-fc"
+      "@m-fe"
     ]
   },
   "lint-staged": {
@@ -95,15 +95,15 @@
       "git add"
     ]
   },
-  "prettier": "@wx-fc/prettier-config/semi",
+
   "remarkConfig": {
     "plugins": [
-      "@wx-fc/remark-config"
+      "@m-fe/remark-config"
     ]
   },
   "stylelint": {
     "extends": [
-      "@wx-fc/stylelint-config"
+      "@m-fe/stylelint-config"
     ],
     "rules": {
       "font-family-no-missing-generic-family-keyword": null,

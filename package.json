@@ -37,17 +37,17 @@
     "upgrade": "./scripts/tools/upgrade_pkgs.sh"
   },
   "devDependencies": {
-    "@wx-fc/app-config": "^0.3.6"
+    "@m-fe/app-config": "^0.4.4"
   },
   "commitlint": {
     "extends": [
-      "@wx-fc"
+      "@m-fe"
     ]
   },
-  "prettier": "@wx-fc/prettier-config/semi",
+
   "remarkConfig": {
     "plugins": [
-      "@wx-fc/remark-config"
+      "@m-fe/remark-config"
     ]
   }
 }
