@@ -13,4 +13,18 @@ export class Interceptor {
   error: Function = (error: Error) => {
     return error;
   };
+
+  constructor(props: Partial<Interceptor> = {}) {
+    if (props.use) {
+      this.use = props.use;
+    }
+
+    if (props.success) {
+      this.success = props.success;
+    }
+
+    if (props.error) {
+      this.error = props.error;
+    }
+  }
 }

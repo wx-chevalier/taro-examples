@@ -13,10 +13,10 @@ const defaultOptions: WxRequestOption = {
   },
 };
 
-export const createWithWxProxy = (option: WxRequestOption) => {
+export const createWithWxProxy = (option: WxRequestOption): WeappAxios => {
   const ins = new WeappAxios(option);
   const cp = new CopyProxy(ins);
-  const copyedIns = cp.clone();
+  const copyedIns: WeappAxios = cp.clone();
   cp.make(copyedIns, 'wx', (key: string) => (url: string, data: DataType) =>
     ins.method({ url, data, api: key }),
   );
@@ -41,8 +41,8 @@ export class WeappAxios {
     return this.method({ url, data, method: defaultOptions.method });
   };
 
-  get = (url: string, data: DataType) => {
-    return this.method({ url, data, method: 'get' });
+  get = (url: string) => {
+    return this.method({ url, method: 'get' });
   };
 
   post = (url: string, data: DataType) => {
