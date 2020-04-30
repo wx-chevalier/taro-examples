@@ -1,5 +1,3 @@
-const path = require('path');
-
 const config = {
   projectName: 'Taro App',
   date: '2020-3-7',
@@ -11,9 +9,6 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  // alias: {
-  //   '@/taro-common': path.resolve(__dirname, '../../taro-common', 'src'),
-  // },
   babel: {
     sourceMap: true,
     presets: [
@@ -40,7 +35,8 @@ const config = {
     ],
   },
   defineConstants: {},
-  plugins: [path.resolve(__dirname, './plugin.js')],
+  // plugins: ['taro-plugin-m-fe'],
+  plugins: [],
   mini: {
     postcss: {
       autoprefixer: {

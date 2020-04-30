@@ -2,14 +2,18 @@
   "extends": "@m-fe/tsconfig/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["packages/rtw-host-app/src/*"]
-    },
+    "paths": {},
     "jsx": "preserve",
     "strictFunctionTypes": false,
     "strictNullChecks": false,
     "suppressImplicitAnyIndexErrors": true,
     "incremental": false
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "references": [
+    // The order is important
+    {
+      "path": "packages/taro-common"
+    },
+  ]
 }

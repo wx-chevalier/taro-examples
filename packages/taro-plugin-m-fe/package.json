@@ -1,0 +1,46 @@
+{
+  "name": "taro-plugin-m-fe",
+  "version": "0.0.2",
+  "description": "Taro 数据 Mock 插件",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FE-Kits/m-fe-taro.git"
+  },
+  "homepage": "https://github.com/FE-Kits/m-fe-taro#readme",
+  "bugs": {
+    "url": "https://github.com/FE-Kits/m-fe-taro/issues"
+  },
+  "author": "wx-chevalier",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "Taro"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run prod",
+    "clean": "rimraf dist",
+    "dev": "tsc -w",
+    "prod": "tsc",
+    "test": "jest",
+    "test:dev": "jest --watch"
+  },
+  "dependencies": {
+    "@tarojs/helper": "2.2.0",
+    "@tarojs/service": "2.2.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "get-port": "^5.1.1",
+    "glob": "^7.1.6",
+    "http-proxy-middleware": "^1.0.3",
+    "path-to-regexp": "^6.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.3",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.8",
+    "jest": "^25.2.4",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^25.3.0",
+    "typescript": "^3.8.3"
+  }
+}

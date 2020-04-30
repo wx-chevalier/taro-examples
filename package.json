@@ -21,7 +21,8 @@
   ],
   "scripts": {
     "bootstrap": "yarn install && yarn run build",
-    "build": "npm run clean && yarn workspaces run build && cp -r ./packages/taro-app/build ./build",
+    "build": "npm run clean && yarn workspaces run build",
+    "build:taro-app": "(cd packages/taro-app && npm run build:weapp)",
     "clean": "yarn workspaces run clean",
     "clean:cov": "yarn workspaces run clean:cov",
     "dev": "npm start",
@@ -29,7 +30,7 @@
     "lint-staged": "lint-staged",
     "postinstall": "node ./node_modules/husky/lib/installer/bin install",
     "prettier-all": "prettier --write 'packages/**/src/**/*.{js,ts,tsx}' '!src/{assets,datas}/**'",
-    "start": "(cd packages/taro-app && npm run dev:weapp)",
+    "start": "(cd packages/taro-app && npm run clean && npm run dev:weapp)",
     "start:m-fe": "./scripts/tools/start_micro.sh",
     "test": "yarn workspaces run test",
     "test:cov": "yarn workspaces run test:cov",
@@ -37,14 +38,13 @@
     "upgrade": "./scripts/tools/upgrade_pkgs.sh"
   },
   "devDependencies": {
-    "@m-fe/app-config": "^0.4.4"
+    "@m-fe/app-config": "^0.5.0"
   },
   "commitlint": {
     "extends": [
       "@m-fe"
     ]
   },
-
   "remarkConfig": {
     "plugins": [
       "@m-fe/remark-config"

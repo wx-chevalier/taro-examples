@@ -16,12 +16,6 @@ module.exports = {
         varsIgnorePattern: 'Taro',
       },
     ],
-    'react/jsx-filename-extension': [
-      1,
-      {
-        extensions: ['.js', '.jsx', '.tsx'],
-      },
-    ],
     '@typescript-eslint/no-unused-vars': [
       'error',
       {

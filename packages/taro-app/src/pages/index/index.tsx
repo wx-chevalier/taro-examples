@@ -3,6 +3,8 @@ import { connect } from '@tarojs/redux';
 import Taro, { Component, Config } from '@tarojs/taro';
 import { ComponentClass } from 'react';
 
+import CommonComp from '../../taro-common';
+
 import { commonActions } from '../../ducks/common';
 import { AppState } from '../../ducks';
 
@@ -94,6 +96,8 @@ class Index extends Component {
         <View>
           <Text>Hello, World</Text>
         </View>
+        <View>Shared components from taro-common</View>
+        <CommonComp />
       </View>
     );
   }
