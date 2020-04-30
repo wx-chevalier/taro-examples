@@ -31,6 +31,8 @@ $ yarn lint
 
 Taro 官方提供了 [taro-ui-sample](https://github.com/NervJS/taro-ui-sample) 来编写多端共享组件库，但是在 Yarn Workspace 中其小程序的组件路径注册会存在一定的问题。笔者是自定义了 [taro-plugin-m-fe](./packages) 来动态地支持该特性。需要注意的是，如果要使用本地自定义插件，那么 @tarojs/cli 需要安装为项目依赖而不能使用全局的安装项。
 
+使用插件方式还是过于麻烦，建议使用 `ln -s /path/to/src common` 方式进行文件夹共享。
+
 ## Nav | 关联项目
 
 - [m-fe-configs](https://github.com/wx-chevalier/m-fe-configs)：Common Dev Configs(ESLint, Prettier, Husky, etc.) for Micro-Frontend Apps
