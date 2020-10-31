@@ -4,7 +4,7 @@
   "description": "@m-fe/weapp-axios",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FE-Kits/m-fe-taro"
+    "url": "https://github.com/wx-chevalier/m-fe-taro"
   },
   "author": "wx-chevalier@github",
   "license": "MIT",

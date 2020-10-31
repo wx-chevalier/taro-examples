@@ -4,11 +4,11 @@
   "description": "Taro 数据 Mock 插件",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FE-Kits/m-fe-taro.git"
+    "url": "git+https://github.com/wx-chevalier/m-fe-taro.git"
   },
-  "homepage": "https://github.com/FE-Kits/m-fe-taro#readme",
+  "homepage": "https://github.com/wx-chevalier/m-fe-taro#readme",
   "bugs": {
-    "url": "https://github.com/FE-Kits/m-fe-taro/issues"
+    "url": "https://github.com/wx-chevalier/m-fe-taro/issues"
   },
   "author": "wx-chevalier",
   "license": "MIT",
