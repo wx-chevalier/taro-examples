@@ -8177,17 +8177,10 @@ resolve@1.8.1:
   dependencies:
     path-parse "^1.0.5"
 
-resolve@^1.1.7, resolve@^1.12.0:
+resolve@^1.1.7, resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.0, resolve@^1.12.0, resolve@^1.5.0:
   version "1.17.0"
   resolved "https://registry.npm.taobao.org/resolve/download/resolve-1.17.0.tgz#b25941b54968231cc2d1bb76a79cb7f2c0bf8444"
   integrity sha1-sllBtUloIxzC0bt2p5y38sC/hEQ=
-  dependencies:
-    path-parse "^1.0.6"
-
-resolve@^1.10.0, resolve@^1.10.1, resolve@^1.11.0, resolve@^1.5.0:
-  version "1.11.1"
-  resolved "https://registry.npmjs.org/resolve/-/resolve-1.11.1.tgz#ea10d8110376982fef578df8fc30b9ac30a07a3e"
-  integrity sha512-vIpgF6wfuJOZI7KKKSP+HmiKggadPQAdsp5HiC1mvqnfp0gF1vdwgBWZIdrVft9pgqoMFQN+R7BSWZiBxx+BBw==
   dependencies:
     path-parse "^1.0.6"
 
